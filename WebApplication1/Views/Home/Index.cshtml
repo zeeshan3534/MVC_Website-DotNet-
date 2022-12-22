@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@Session["var4"]
+@{
+    List<object> AuthorList = new List<object>();
+
+    //var imagetitle = "";
+    foreach (System.Data.DataRow i in ViewBag.emp.Rows)
+    {
+        AuthorList.Add(@i["ImageTitle"]);
+        AuthorList.Add(@i["ImageDescription"]);
+        AuthorList.Add(@i["ImagePath"]);
+    }
+}
+
+@*@Html.ActionLink("Go to Home", "Index", "Home",1)*@
+@*<a href="/Home/MultiplePage?id=1000">goto</a>*@
+
+
+<div id="themeSlider" class="carousel slide" data-ride="carousel" style="height:550px;">
+    <ol class="carousel-indicators">
+        <li data-target="#themeSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#themeSlider" data-slide-to="1"></li>
+        <li data-target="#themeSlider" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="imgOverlay"></div>
+            <p></p>
+            <img style="height:550px;width:100%;" src="@AuthorList[2]" alt="First slide">
+            <div class="carousel-caption">
+                <h3>@AuthorList[0]</h3>
+                <p>@AuthorList[1]</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:550px;width:100%;" src="@AuthorList[5]" alt="Second slide">
+            <div class="carousel-caption">
+                <h3>@AuthorList[3]</h3>
+                <p>@AuthorList[4]</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:550px;width:100%;" src="@AuthorList[8]" alt="Third slide">
+            <div class="carousel-caption">
+                <h3>@AuthorList[6]</h3>
+                <p>@AuthorList[7]</p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#themeSlider" data-slide="prev">
+        <span class="fa fa-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#themeSlider" data-slide="next">
+        <span class="fa fa-chevron-right"></span>
+    </a>
+
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2>Featured Products</h2>
+        </div>
+    </div>
+</div>
+<div class="row product-container">
+    @{
+        foreach (System.Data.DataRow j in ViewBag.pro.Rows)
+        {
+
+
+            <p></p>
+            <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+                <div class="thumbnail product-item" style="height:400px;">
+                    <img src="@j["ProductImage"]" class="img-responsive" title="Click to view product detail" style="cursor:pointer;height:160px;width:100%" ; />
+                    <div class="caption">
+                        <h5>
+                            @j["ProductName"]
+                        </h5>
+                        <p><b>Price </b>@j["Price"]</p>
+                        <p><b>Description </b>@j["Description"]</p>
+                        <p><b>Quantity </b>@j["Quantity"]</p>
+                        <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Buy Now</a>
+                        <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add to Cart</a>
+
+                        <div class="product-item-badge">New</div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+

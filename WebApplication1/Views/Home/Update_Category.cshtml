@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Update_Category";
+}
+
+<h2>Update_Category</h2>
+
+@{
+    foreach (System.Data.DataRow dr in ViewBag.brandCate.Rows)
+    {
+
+
+<form method="post">
+    <div class="form-group">
+        <label class="col-sm-3 control-label no-padding-right">CategoryName</label>
+        <div class="col-sm-9">
+            <input type="text" value="@dr["CategoryName"]" name="CategoryName" class="col-xs-10 col-sm-8" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-9">
+            <input type="submit" value="submit" class="btn btn-primary" />
+        </div>
+    </div>
+
+</form>
+
+    }
+}

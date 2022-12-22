@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+}
+<html>
+<head>
+    <title>Add Data</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <h1>Slider Access</h1>
+    <table class="table table-striped  table-bordered table-hover table-condensed">
+        <tr>
+            <th>
+                Image Id
+            </th>
+            <th>Image Title</th>
+            <th>Image Description</th>
+            <th>Image Path</th>
+            <th>Action</th>
+        </tr>
+        @{
+            foreach (System.Data.DataRow dr in ViewBag.emp.Rows)
+            {
+                <tr>
+                    <td>@dr["SliderId"]</td>
+                    <td>@dr["ImageTitle"]</td>
+                    <td>@dr["ImageDescription"]</td>
+                    <td>@dr["ImagePath"]</td>
+                    <td>
+                        <a href="/Home/Update_req?id=@dr["SliderId"]">Update</a>
+
+                    </td>
+                </tr>
+            }
+        }
+
+
+
+    </table>
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1>ProDuct Manipulation</h1>
+    <a href="@Url.Action("Insert","Home")"><div style="height:20px;width:80px; background-color:aqua; border-radius:50%"><center>Insert</center></div></a>
+    <br />
+    <table class="table table-striped  table-bordered table-hover table-condensed">
+        <tr>
+            <th>
+                ProductId
+            </th>
+            <th>ProductName</th>
+            <th>CategoryId</th>
+            <th>IsActive</th>
+            <th>Description</th>
+            
+            <th>Quantity</th>
+            <th>IsActive</th>
+            <th>CreatedDate</th>
+            <th>Price</th>
+            <th>Featured</th>
+            <th>Action</th>
+
+        </tr>
+        @{
+            foreach (System.Data.DataRow dr in ViewBag.brand.Rows)
+            {
+        <tr>
+            <td>@dr["ProductId"]</td>
+            <td>@dr["ProductName"]</td>
+            <td>@dr["CategoryId"]</td>
+            <td>@dr["IsActive"]</td>
+            <td>@dr["Description"]</td>
+           
+            <td>@dr["Quantity"]</td>
+            <td>@dr["IsActive"]</td>
+            <td>@dr["CreatedDate"]</td>
+            <td>@dr["Price"]</td>
+            <td>@dr["Featured"]</td>
+       
+            <td>
+                <a href="/Home/Update_Brand?id=@dr["ProductId"]">Update</a>
+                <a href="/Home/DeleteRecord?id=@dr["ProductId"]">Delete</a>
+            </td>
+        </tr>
+            }
+        }
+    </table>
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1>Category Manipulation</h1>
+    <a href="@Url.Action("InsertCategory","Home")"><div style="height:20px;width:80px; background-color:aqua; border-radius:50%"><center>Insert</center></div></a>
+    <br />
+    <table class="table table-striped  table-bordered table-hover table-condensed">
+        <tr>
+            <th>
+                CategoryId
+            </th>
+            <th>CategoryName</th>
+
+        </tr>
+        @{
+            foreach (System.Data.DataRow dr in ViewBag.Category.Rows)
+            {
+                <tr>
+                    <td>@dr["CategoryId"]</td>
+                    <td>@dr["CategoryName"]</td>
+
+                    <td>
+                        <a href="/Home/Update_Category?id=@dr["CategoryId"]">Update</a>
+                        <a href="/Home/Deletecategory?id=@dr["CategoryId"]">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</body>
+</html>
+

@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Insert";
+}
+
+<html>
+<head>
+    <title>Add Data</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <form method="post">
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right">ProductName</label>
+                <div class="col-sm-9">
+                    <input type="text" name="ProductName" class="col-xs-10 col-sm-8" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right">CategoryId</label>
+                <div class="col-sm-9">
+                    <input type="text" name="CategoryId" class="col-xs-10 col-sm-8" />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right">IsActive</label>
+                <div class="col-sm-9">
+                    <input type="text" name="IsActive" class="col-xs-10 col-sm-8" maxlength="1" value="1" />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right">Description</label>
+                <div class="col-sm-9">
+                    <input type="text" name="Description" class="col-xs-10 col-sm-8" />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right">ProductImage</label>
+                <div class="col-sm-9">
+                    <input type="text" name="ProductImage" class="col-xs-10 col-sm-8" />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right">Quantity</label>
+                <div class="col-sm-9">
+                    <input type="text" name="Quantity" class="col-xs-10 col-sm-8" />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right">Price</label>
+                <div class="col-sm-9">
+                    <input type="text" name="Price" class="col-xs-10 col-sm-8" />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right">Featured</label>
+                <div class="col-sm-9">
+                    <input type="text" name="Featured" class="col-xs-10 col-sm-8" />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <input type="submit" value="submit" class="btn btn-primary" />
+                </div>
+            </div>
+
+
+
+        </form>
+    </div>
+    
+    @{
+        if (TempData["msg"] != null)
+        {
+            <script>alert('@TempData["msg"]')</script>
+        }
+    }
+</body>
+</html>

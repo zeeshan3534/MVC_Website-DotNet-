@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "MultiplePage";
+}
+
+
+<div class="row product-container">
+
+    @{
+        int a = 0;  
+        foreach (System.Data.DataRow item in ViewBag.brand.Rows)
+        {
+
+
+            {
+                if (a == 0)
+                {
+                    <center> <h1 style="text-decoration:underline; margin-bottom:50px;">@item["CategoryName"]</h1></center>
+                }
+                a++;
+
+
+                <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+                    <div class="thumbnail product-item" style="height:400px;">
+                        <img src='@item["ProductImage"]' class="img-responsive" title="Click to view product detail" style="cursor:pointer;height:160px;width:100%" ; />
+                        <div class="caption">
+                            <h5>
+                                <b>Product Name </b>@item["ProductName"]
+                            </h5>
+                            <p><b>Price </b>@item["Price"]</p>
+                            <p><b>Description </b>@item["Description"]</p>
+                            <p><b>Quantity </b>@item["Quantity"]</p>
+                            <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Buy Now</a>
+                            <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add to Cart</a>
+
+                            <div class="product-item-badge">New</div>
+                        </div>
+                    </div>
+                </div>
+
+
+            }
+        }
+    }
+
+
+    </div>
+
+
+
